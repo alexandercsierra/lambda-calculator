@@ -18,8 +18,8 @@ function App() {
   // Don't forget to pass the functions (and any additional data needed) to the components as props
 
 
-  const [numberState, setNumberState] = useState("");
-  const [operatorState, setOperatorState] =  useState("");
+  const [numberState, setNumberState] = useState();
+  const [operatorState, setOperatorState] =  useState();
 
   return (
     <div className="container">

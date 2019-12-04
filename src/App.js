@@ -25,10 +25,18 @@ function App() {
     <div className="container">
       <Logo />
       <div className="App">
-        <Display numberState = {numberState} operatorState = {operatorState}/>
-        <Numbers setNumberState = {setNumberState}/>
-        <Operators setOperatorState = {setOperatorState}/>
-        <Specials />
+        <div className="displayDiv">
+          <Display numberState = {numberState} operatorState = {operatorState}/>
+        </div>
+        <div class="allBtns">
+          <div class="btns">
+            <Specials numberState = {numberState} setNumberState={setNumberState} setOperatorState={setOperatorState}/>
+            <Numbers setNumberState = {setNumberState}/>
+          </div>
+          <div class="ops">
+            <Operators setOperatorState = {setOperatorState}/>
+          </div>
+        </div>
       </div>
     </div>
   );

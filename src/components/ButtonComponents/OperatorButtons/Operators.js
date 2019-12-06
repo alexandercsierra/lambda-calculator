@@ -8,7 +8,16 @@ const Operators = (props) => {
       
       setOperatorState(op.value);
       setEquation(oldArray => [...oldArray, numberState]);
-      setEquation(oldArray => [...oldArray, op.value]);
+      if (equation[equation.length-1] !== op.value){
+        setEquation(oldArray => [...oldArray, op.value]);
+      }
+      
+
+
+
+
+
+
 
       setNumberState("");
 
@@ -35,14 +44,40 @@ const Operators = (props) => {
     width: "100%"
   };
 
+
+
   if (operatorState === "="){
-    // console.log("equate");
-    // console.log(equation);
+    console.log("equate");
+    console.log(equation);
+
+
+
     let str = equation;
     str.pop();
-    setOperatorState(eval(str.join("")));
+    
+
+    //check if two numbers or two strings are next to each other
+    //if two strings, check if same. If same, get rid of last one. If different, pop first keep second
+    //if two numbers clear everything before first number
+
+
+    //loop through str
+    //is str[i] === str[i+1] ? When str[i+1] !== undefined
+    //if yes determine if a number or a string and take appropriate action
+
+    let jStr = str.join("");
+    let ans = eval(jStr);
+    let answer = ans;
+    if (ans < 1){
+      answer = ans.toFixed(2);
+    }
+      
+    
+
+    setOperatorState(answer);
+    setEquation([answer]);
     console.log(str);
-    // console.log());
+
   }
 
   return (

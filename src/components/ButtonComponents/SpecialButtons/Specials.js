@@ -7,9 +7,10 @@ const Specials = (props) => {
     return(<button key = {sp} 
     
     onClick = {e => {
+      setOperatorState("");
       if (sp === "C"){
         setNumberState(0);
-        setOperatorState("");
+        
         setEquation([]);
       } else if (sp === "+/-"){
           setNumberState(numberState * -1);

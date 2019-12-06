@@ -2,7 +2,7 @@ import React from "react";
 import {specials} from "../../../data";
 
 const Specials = (props) => {
-  const {setNumberState, numberState, setOperatorState} = props;
+  const {setNumberState, numberState, setOperatorState, setEquation} = props;
   const specBtn = specials.map(sp => {
     return(<button key = {sp} 
     
@@ -10,6 +10,7 @@ const Specials = (props) => {
       if (sp === "C"){
         setNumberState(0);
         setOperatorState("");
+        setEquation([]);
       } else if (sp === "+/-"){
           setNumberState(numberState * -1);
       } else if (sp === "%"){

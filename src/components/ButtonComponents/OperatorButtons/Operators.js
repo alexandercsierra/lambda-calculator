@@ -2,9 +2,26 @@ import React from "react";
 import {operators} from "../../../data";
 
 const Operators = (props) => {
-  const {setOperatorState} = props;
+  const {setOperatorState, setEquation, equation, setNumberState, operatorState, numberState} = props;
   const opBtn = operators.map(op => {
-    return(<button key = {op} onClick={e => {setOperatorState(op.value)}}>{op.char}</button>);
+    return(<button key = {op.char} onClick={e => {
+      
+      setOperatorState(op.value);
+      setEquation(oldArray => [...oldArray, numberState]);
+      setNumberState("");
+
+
+      // if(op.value = "+"){
+      //   console.log(equation);
+      // } else {
+      //   console.log("equate");
+      // }
+
+      
+      
+    
+    
+    }}>{op.char}</button>);
   });
 
   const divStyle = {
@@ -15,6 +32,26 @@ const Operators = (props) => {
     padding: "0",
     width: "100%"
   };
+
+  if (operatorState === "/"){
+    console.log("divide");
+
+  } else if (operatorState === "*"){
+    console.log("multiply");
+
+
+  } else if (operatorState === "-"){
+    console.log("subtract");
+
+
+  } else if (operatorState === "+"){
+    console.log("add");
+
+
+  } else if (operatorState === "="){
+    console.log("equate");
+    console.log(equation);
+  }
 
   return (
     

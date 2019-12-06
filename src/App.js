@@ -20,21 +20,23 @@ function App() {
 
   const [numberState, setNumberState] = useState();
   const [operatorState, setOperatorState] =  useState();
+  const [equation, setEquation] = useState([]);
+  // let equation = [];
 
   return (
     <div className="container">
       <Logo />
       <div className="App">
         <div className="displayDiv">
-          <Display numberState = {numberState} operatorState = {operatorState}/>
+          <Display numberState = {numberState} operatorState = {operatorState} />
         </div>
         <div class="allBtns">
           <div class="btns">
-            <Specials numberState = {numberState} setNumberState={setNumberState} setOperatorState={setOperatorState}/>
-            <Numbers setNumberState = {setNumberState}/>
+            <Specials numberState = {numberState} setNumberState={setNumberState} setOperatorState={setOperatorState} setEquation = {setEquation}/>
+            <Numbers setNumberState = {setNumberState} numberState = {numberState} setOperatorState = {setOperatorState} setEquation = {setEquation} />
           </div>
           <div class="ops">
-            <Operators setOperatorState = {setOperatorState}/>
+            <Operators setOperatorState = {setOperatorState} numberState = {numberState} setEquation = {setEquation} equation = {equation} setNumberState={setNumberState} operatorState = {operatorState}/>
           </div>
         </div>
       </div>

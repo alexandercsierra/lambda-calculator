@@ -8,6 +8,8 @@ const Operators = (props) => {
       
       setOperatorState(op.value);
       setEquation(oldArray => [...oldArray, numberState]);
+      setEquation(oldArray => [...oldArray, op.value]);
+
       setNumberState("");
 
 
@@ -33,24 +35,14 @@ const Operators = (props) => {
     width: "100%"
   };
 
-  if (operatorState === "/"){
-    console.log("divide");
-
-  } else if (operatorState === "*"){
-    console.log("multiply");
-
-
-  } else if (operatorState === "-"){
-    console.log("subtract");
-
-
-  } else if (operatorState === "+"){
-    console.log("add");
-
-
-  } else if (operatorState === "="){
-    console.log("equate");
-    console.log(equation);
+  if (operatorState === "="){
+    // console.log("equate");
+    // console.log(equation);
+    let str = equation;
+    str.pop();
+    setOperatorState(eval(str.join("")));
+    console.log(str);
+    // console.log());
   }
 
   return (
